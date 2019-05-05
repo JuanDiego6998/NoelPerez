@@ -1,0 +1,33 @@
+{{#each proyectos}}
+<div class="card">
+    <div class="card-body shadow" id="tarjeta">
+        <h4 class="card-title">{{this.nombre}}</h4>
+        <h6 class="text-muted card-subtitle mb-2">Description</h6>
+        <p class="card-text">{{this.descripcion}}</p>
+        <div id="textCollapse"><a class="btn btn-primary btn-sm" data-toggle="collapse" aria-expanded="true"
+                aria-controls="collapse-1" role="button" href="#collapse-{{@index}}">Show more</a>
+            <div class="collapse show" id="collapse-{{@index}}">
+                <p><br>{{this.contenido}}<br><br>
+                    <img class="img-fluid mx-auto d-block" src="assets/img/minibus.jpeg"></p>
+            </div>
+        </div>
+        <button class="btn btn-danger" type="button" style="margin-top: 16px;">Eliminar</button>
+    </div>
+</div>
+{{/each}}
+
+<div style="margin: 27px;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false"
+        aria-controls="collapseAdmin" role="button" href="#collapseAdmin">Nuevo articulo</a>
+    <div class="collapse" id="collapseAdmin">
+        <form method="post" action='' role='form'>
+            <div class="form-group"><input class="form-control" type="text" name="nombre"
+                    placeholder="Titulo del artículo" style="margin-top: 23px;"></div>
+            <div class="form-group"><input class="form-control" type="text" name="descripcion"
+                    placeholder="Descripcion del artículo" style="margin-top: 23px;"></div>
+            <div class="form-group"><textarea class="form-control" name="contenido"
+                    placeholder="Contenido del articulo"></textarea></div>
+            <div class="form-group"><input type="file" accept="image/*" name="Imagen"></div>
+            <div class="form-group"><button class="btn btn-primary" type="submit">Agregar</button></div>
+        </form>
+    </div>
+</div>

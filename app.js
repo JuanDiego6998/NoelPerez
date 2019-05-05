@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var exphbs = require('express-handlebars').create({
   layoutsDir: path.join(__dirname, "app_server/views/layouts"),
-  partialsDir: path.join(__dirname, "views/partials"),
+  partialsDir: path.join(__dirname, "views"),
   defaultLayout: 'layout',
   extname: 'hbs'
 });

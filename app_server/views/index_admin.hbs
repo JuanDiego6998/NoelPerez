@@ -1,0 +1,24 @@
+<div class="text-white bg-secondary" id="portada">
+    <div class="jumbotron jumbotron-fluid"
+        style="padding: 148px;padding-right: 0;padding-left: 0;padding-top: 143px;opacity: 1;background-color: rgba(237,75,75,0);color: #ffffff;margin-right: -40px;margin-left: -40px;">
+        <h1 style="background-color: #fe0202;">NOEL PÉREZ</h1>
+        <p style="background-color: #ff0000;">Research projects, personal information, and courses</p><a
+            class="btn btn-primary btn-sm" role="button" href="#proyectos">Projects</a>
+    </div>
+</div>
+<div id="proyectos" class="projects-clean">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Projects</h2>
+        </div>
+        <div class="row projects">
+            {{#each proyectos}}
+            <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" src="assets/img/desk.jpg" href="/proyectos">
+                <h3 class="name"><strong>{{nombre}}</strong></h3>
+                <p class="description">{{descripcion}}</p><a
+                    class="btn btn-link" role="button" href="/proyectos">Ver Proyecto</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

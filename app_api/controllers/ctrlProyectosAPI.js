@@ -11,7 +11,7 @@ module.exports.proyectosCreate = function (req, res) {
     proyectos.create({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
-        equipo : req.body.equipo
+        contenido : req.body.contenido
     }, function (err, proyecto) {
         if (err) {
             sendJsonResponse(res, 400, err);
@@ -27,7 +27,7 @@ module.exports.proyectosList = function (req, res) {
         .find()
         .exec(
             function (err, proyecto) {
-                if (!fotografo) {
+                if (!proyecto) {
                     sendJsonResponse(res, 404, {
                         "message": "proyectos not found"
                     });
@@ -76,7 +76,7 @@ module.exports.proyectosUpdateOne = function (req, res) {
 };
 
 //elimina un proyecto especifico
-module.exports.proyectoDeleteOne = function (req, res) {
+module.exports.proyectosDeleteOne = function (req, res) {
     var proyectoid = req.params.proyectoid;
     if (proyectoid) {
         proyectos

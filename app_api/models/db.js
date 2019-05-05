@@ -39,4 +39,9 @@ process.on('SIGTERM', function(){
     });
 });
 
-require('./fotografos');
+require('./proyectos');
+require('./shortcv');
+require('./agenda');
+require('./log');
+require('./reservas');
+require('./cursos');

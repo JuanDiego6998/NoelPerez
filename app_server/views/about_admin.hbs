@@ -1,0 +1,36 @@
+<div class="article-clean">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                <div class="intro">
+                    <h1 class="text-center">Short CV</h1>
+                    <p class="text-center"><span class="by">By</span> <a href="#">Noel Pérez</a><span
+                            class="date">{{fecha}} </span></p>
+                </div>
+                <div class="text">
+                    <h2>Education</h2>
+                    <p><br>{{educacion}}<br></p>
+                    <h2>Professional and Academic Activities<br></h2>
+                    <p>{{actividades}}</p>
+                </div>
+                <button class="btn btn-danger text-left" type="button">Eliminar</button>
+                <div style="margin: 27px;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true"
+                        aria-controls="collapseAdminCV" role="button" href="#collapseAdminCV">Editar</a>
+                    <div class="collapse show" id="collapseAdminCV">
+                        <form class="text-center" method="post" action=''>
+                            <div class="form-group">
+                                <input class='form-control form-control-sm' name='fecha' type='text' placeholder="Fecha de la actualización"></input>
+                                <textarea class="form-control form-control-sm" name="educacion"
+                                    placeholder="Contenido del CV" style="margin-top: 22px;"></textarea>
+                                <textarea class="form-control form-control-sm" name="actividades"
+                                    placeholder="Actividades academicas" style="margin-top: 22px;"></textarea>
+                            </div>
+                            <div class="form-group"><button class="btn btn-success btn-sm"
+                                    type="submit">Actualizar</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
