@@ -28,6 +28,7 @@ router.post('/reservasJ', ctrlMain.newReserva);
 
 router.get('/cursos', ctrlMain.cursos);
 router.get('/cursos_admin', ctrlMain.cursosAdmin);
+router.post('/cursos_admin', ctrlMain.newCurso);
 
 router.get('/proyectos_admin', ctrlMain.proyectosAdmin);
 router.post('/proyectos_admin', ctrlMain.newProyecto);

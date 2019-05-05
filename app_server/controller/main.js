@@ -426,4 +426,26 @@ module.exports.cursosAdmin = function(req, res){
 		}
 	)
 }
+
+module.exports.newCurso = function(req, res){
+	var requestOptions, path, postdata;
+	path = '/api/cursos';
+	postdata = {
+		anio= req.body.anio,
+		cursos = req.body.cursos.split(',')
+	}
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: 'POST',
+		json: postdata
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			if(response.statusCode === 201){
+				res.redirect('/cursos_admin');
+			}
+		}
+	)
+}
 ///////////////////////////////////////////////////
