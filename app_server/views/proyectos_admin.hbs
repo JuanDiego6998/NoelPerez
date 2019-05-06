@@ -11,7 +11,7 @@
                     <img class="img-fluid mx-auto d-block" src="assets/img/minibus.jpeg"></p>
             </div>
         </div>
-        <button class="btn btn-danger" type="button" style="margin-top: 16px;">Eliminar</button>
+        <a class="btn btn-danger" type="button" style="margin-top: 16px;" href='/proyectos_admin/{{this._id}}'>Eliminar</a>
     </div>
 </div>
 {{/each}}
@@ -24,8 +24,8 @@
                     placeholder="Titulo del artículo" style="margin-top: 23px;"></div>
             <div class="form-group"><input class="form-control" type="text" name="descripcion"
                     placeholder="Descripcion del artículo" style="margin-top: 23px;"></div>
-            <div class="form-group"><textarea class="form-control" name="contenido"
-                    placeholder="Contenido del articulo"></textarea></div>
+            <div class="form-group"><input type='text' class="form-control" name="contenido"
+                    placeholder="Contenido del articulo"></input></div>
             <div class="form-group"><input type="file" accept="image/*" name="Imagen"></div>
             <div class="form-group"><button class="btn btn-primary" type="submit">Agregar</button></div>
         </form>

@@ -1,0 +1,26 @@
+<div class="article-clean">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center">Equipo de Investigación</h1>
+                        <p class="text-center"><span class="by">By</span> <a href="#">Noel Perez</a></p>
+                    </div>
+                    {{#each equipos}}
+                    <div class="row">
+                        <div class="col">
+                            <div class="text">
+                                <h2>{{this.nombre}}</h2>
+                                <ul>
+                                    {{#each this.miembros}}
+                                    <li>{{this}}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>

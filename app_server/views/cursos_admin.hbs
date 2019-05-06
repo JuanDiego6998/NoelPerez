@@ -19,13 +19,16 @@
                         aria-controls="collapseAdminCursos" role="button" href="#collapseAdminCursos{{@index}}">Editar
                         clases</a>
                     <div class="collapse" id="collapseAdminCursos{{@index}}">
-                        <form class="text-center" method="post">
-                            <div class="form-group"><textarea class="form-control form-control-sm" name="Curso"
-                                    placeholder="Curso" style="margin-top: 22px;"></textarea>
+                        <form class="text-center" method="post" action='/cursos_admin/{{this._id}}'>
+                            <div class="form-group">
+                                <input type='text' class="form-control form-control-sm" name="cursos"
+                                    placeholder="Cursos, separados por comas" style="margin-top: 22px;"></input>
                             </div>
                             <div class="form-group"><button class="btn btn-success btn-sm"
-                                    type="submit">Agregar</button></div><button class="btn btn-danger text-left"
-                                type="button">Eliminar</button>
+                                    type="submit">Actualizar</button>
+                            </div>
+                            <a class="btn btn-danger text-left"
+                                type="button" href='/cursos_admin/delete/{{this._id}}'>Eliminar</a>
                         </form>
                     </div>
                 </div>

@@ -45,3 +45,5 @@ require('./agenda');
 require('./log');
 require('./reservas');
 require('./cursos');
+require('./penalizados');
+require('./equipos');

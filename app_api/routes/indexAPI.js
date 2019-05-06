@@ -6,6 +6,9 @@ var ctrlAgenda = require('../controllers/ctrlAgenda');
 var ctrlLog = require('../controllers/ctrlLog');
 var ctrlReservas = require('../controllers/ctrlReservas');
 var ctrlCursos = require('../controllers/ctrlCursos');
+var ctrlPenalizados = require('../controllers/ctrlPenalizados.js');
+var ctrlEstadoAgenda = require('../controllers/ctrlEstadoAgenda');
+var ctrlEquipos = require('../controllers/ctrlEquipos');
 
 router.get('/proyectos', ctrlProyectos.proyectosList);
 router.post('/proyectos',ctrlProyectos.proyectosCreate);
@@ -40,5 +43,19 @@ router.post('/cursos',ctrlCursos.cursosCreate);
 router.get('/cursos/:cursoid', ctrlCursos.cursosReadOne);
 router.put('/cursos/:cursoid',ctrlCursos.cursosUpdateOne);
 router.delete('/cursos/:cursoid', ctrlCursos.cursosDeleteOne);
+
+router.get('/penalizados', ctrlPenalizados.penalizadosList);
+router.post('/penalizados',ctrlPenalizados.penalizadosCreate);
+router.get('/penalizados/:penalizadoid', ctrlPenalizados.penalizadosReadOne);
+router.put('/penalizados/:penalizadoid',ctrlPenalizados.penalizadosUpdateOne);
+router.delete('/penalizados/:penalizadoid', ctrlPenalizados.penalizadosDeleteOne);
+
+router.get('/estadoAgenda', ctrlEstadoAgenda.estadoAgendaList);
+
+router.get('/equipos', ctrlEquipos.equiposList);
+router.post('/equipos',ctrlEquipos.equiposCreate);
+router.get('/equipos/:equipoid', ctrlEquipos.equiposReadOne);
+router.put('/equipos/:equipoid',ctrlEquipos.equiposUpdateOne);
+router.delete('/equipos/:equipoid', ctrlEquipos.equiposDeleteOne);
 
 module.exports = router;

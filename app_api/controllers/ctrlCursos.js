@@ -49,6 +49,7 @@ module.exports.cursosUpdateOne = function (req, res) {
     }
     cursos
         .findById(req.params.cursoid)
+        .select('cursos')
         .exec(
             function (err, curso) {
                 if (!curso) {
@@ -60,7 +61,6 @@ module.exports.cursosUpdateOne = function (req, res) {
                     sendJsonResponse(res, 400, err);
                     return;
                 }
-                curso.anio = req.body.anio;
                 curso.cursos = req.body.cursos;
                 curso.save(function (err, curso) {
                     if (err) {

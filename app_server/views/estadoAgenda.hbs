@@ -1,0 +1,34 @@
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 41px;margin-bottom: 41px;">
+                <h2 class="text-center">Estudiantes Agendados</h2>
+                <ul>
+                    {{#each reservas}}
+                    <li>Nombre: {{this.nombre}}, Código: {{this.codigo}}, Día: {{this.dia}}, Comentarios: {{this.comentarios}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Estudiantes Penalizados</h2>
+                <ul>
+                    {{#each penalizados}}
+                    <li>Nombre: {{this.nombre}}, Código: {{this.codigo}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <div class="row text-center" style="margin-top: 29px;">
+            <div class="col-md-12"><button class="btn btn-success" type="button">Actualizar lista</button></div>
+        </div>
+        <div class="row text-center" style="margin-top: 29px;">
+            <div class="col-md-12"><a class="btn btn-danger" type="button" href='/'>Cerrar sesión</a></div>
+        </div>
+    </div>
+</div>
