@@ -22,14 +22,19 @@
 <div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3"><a class="btn btn-primary btn-block" role="button" href="/reservasL"
-                    style="margin-bottom: 3px;">Reserva Lunes</a></div>
-            <div class="col-md-3"><a class="btn btn-primary btn-block" role="button" href="/reservasM"
-                    style="margin-bottom: 3px;">Reserva Martes</a></div>
-            <div class="col-md-3"><a class="btn btn-primary btn-block" role="button" href="/reservasMi"
-                    style="margin-bottom: 3px;">Reserva Miércoles</a></div>
-            <div class="col-md-3"><a class="btn btn-primary btn-block" role="button" href="/reservasJ">Reserva
-                    Jueves</a></div>
+            <div style="margin: 27px;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true"
+                aria-controls="collapseAdminHorario" role="button" href="#collapseAdminHorario">Editar horario</a>
+            <div class="collapse show" id="collapseAdminHorario">
+                <form class="text-center" method="post" action=''>
+                    <div class="form-group">
+                        <input type='text' class="form-control form-control-sm" name="horario" placeholder="Nuevo horario"
+                            style="margin-top: 22px;"></input>
+                    </div>
+                    <div class="form-group"><button class="btn btn-success btn-sm" type="submit">Agregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         </div>
     </div>
 </div>
