@@ -5,7 +5,9 @@
                 <h2 class="text-center">Estudiantes Agendados</h2>
                 <ul>
                     {{#each reservas}}
-                    <li>Nombre: {{this.nombre}}, Código: {{this.codigo}}, Día: {{this.dia}}, Comentarios: {{this.comentarios}}</li>
+                    <li>Nombre: {{this.nombre}}, Código: {{this.codigo}}, Día: {{this.dia}}, Comentarios: {{this.comentarios}}
+                        <button class="btn btn-primary btn-sm" type="submit" style="margin-left: 36px;">Penalizar</button>
+                    </li>
                     {{/each}}
                 </ul>
             </div>
