@@ -10,7 +10,7 @@ var sendJsonResponse = function (res, status, content) {
 module.exports.equiposCreate = function (req, res) {
     equipos.create({
         nombre: req.body.nombre,
-        miembros: req.body.miembros.split(',')
+        miembros: req.body.miembros
     }, function (err, equipo) {
         if (err) {
             sendJsonResponse(res, 400, err);

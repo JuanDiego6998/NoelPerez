@@ -37,6 +37,7 @@ router.post('/reservas',ctrlReservas.reservaCreate);
 router.get('/reservas/:reservaid', ctrlReservas.reservaReadOne);
 router.put('/reservas/:reservaid',ctrlReservas.reservaUpdateOne);
 router.delete('/reservas/:reservaid', ctrlReservas.reservaDeleteOne);
+router.delete('/reservas', ctrlReservas.reservaDeleteAll);
 
 router.get('/cursos', ctrlCursos.cursosList);
 router.post('/cursos',ctrlCursos.cursosCreate);
@@ -51,9 +52,10 @@ router.put('/penalizados/:penalizadoid',ctrlPenalizados.penalizadosUpdateOne);
 router.delete('/penalizados/:penalizadoid', ctrlPenalizados.penalizadosDeleteOne);
 
 router.get('/estadoAgenda', ctrlEstadoAgenda.estadoAgendaList);
+router.get('/estadoAgenda/:reservaid', ctrlEstadoAgenda.getReserva);
 
 router.get('/equipos', ctrlEquipos.equiposList);
-router.post('/equipos',ctrlEquipos.equiposCreate);
+router.post('/equipos', ctrlEquipos.equiposCreate);
 router.get('/equipos/:equipoid', ctrlEquipos.equiposReadOne);
 router.put('/equipos/:equipoid',ctrlEquipos.equiposUpdateOne);
 router.delete('/equipos/:equipoid', ctrlEquipos.equiposDeleteOne);

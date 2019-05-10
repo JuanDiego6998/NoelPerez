@@ -101,6 +101,20 @@ module.exports.reservaDeleteOne = function (req, res) {
     }
 };
 
+//elimina todos los elementos
+module.exports.reservaDeleteAll = function(req, res){
+    reserva
+    .remove({},
+        function(err, reservas){
+            if(err){
+                sendJsonResponse(res, 404, err);
+                return;
+            }
+            sendJsonResponse(res, 204, null);
+        }
+    );
+}
+
 //despliega un reserva especifico
 module.exports.reservaReadOne = function (req, res) {
     if (req.params && req.params.reservaid) {

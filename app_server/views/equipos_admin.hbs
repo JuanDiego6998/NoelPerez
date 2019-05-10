@@ -21,27 +21,19 @@
                 </div>
                 <a class="btn btn-danger text-left" type="button" href='/equipos_admin/{{this._id}}'>Eliminar</a>
                 {{/each}}
-            </div>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
                 <div style="margin: 27px;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true"
-                        aria-controls="collapseEquipos" role="button" href="#collapseEquipos">Nuevo Equipo</a>
-                    <div class="collapse show" id="collapseEquipos">
+                        aria-controls="collapseAdminPeriodo" role="button" href="#collapseAdminPeriodo">Nuevo curso</a>
+                    <div class="collapse show" id="collapseAdminPeriodo">
                         <form class="text-center" method="post" action=''>
                             <div class="form-group">
                                 <input type='text' class="form-control form-control-sm" name="nombre"
-                                    placeholder="Nombre del Equipo" style="margin-top: 22px;"></input>
-                                <input
-                                    type='text' class="form-control form-control-sm" name="miembros" placeholder="Miembros separados por comas"
-                                    style="margin-top: 22px;"></input>
+                                    placeholder="Nombre equipo" style="margin-top: 22px;"></input>
+                                <input type='text' class="form-control form-control-sm" name="miembros"
+                                    placeholder="Miembros separados por coma" style="margin-top: 22px;"></input>
                             </div>
                             <div class="form-group"><button class="btn btn-success btn-sm"
-                                    type="submit">Agregar</button></div>
+                                    type="submit">Agregar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

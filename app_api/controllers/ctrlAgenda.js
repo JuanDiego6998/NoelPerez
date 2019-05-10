@@ -44,7 +44,7 @@ module.exports.agendaList = function (req, res) {
 //actualiza el agenda
 module.exports.agendaUpdateOne = function (req, res) {
     agenda
-        .find()
+        .findOne()
         .exec(
             function (err, agendas) {
                 if (!agendas) {

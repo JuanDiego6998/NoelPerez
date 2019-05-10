@@ -6,7 +6,7 @@
                 <ul>
                     {{#each reservas}}
                     <li>Nombre: {{this.nombre}}, Código: {{this.codigo}}, Día: {{this.dia}}, Comentarios: {{this.comentarios}}
-                        <button class="btn btn-primary btn-sm" type="submit" style="margin-left: 36px;">Penalizar</button>
+                        <a class="btn btn-primary btn-sm" type="submit" style="margin-left: 36px;" href='/estadoAgenda/{{this._id}}'>Penalizar</a>
                     </li>
                     {{/each}}
                 </ul>
@@ -27,7 +27,7 @@
 <div>
     <div class="container">
         <div class="row text-center" style="margin-top: 29px;">
-            <div class="col-md-12"><button class="btn btn-success" type="button">Actualizar lista</button></div>
+            <div class="col-md-12"><a class="btn btn-success" type="button" href='/reset'>Resetear reservas</a></div>
         </div>
         <div class="row text-center" style="margin-top: 29px;">
             <div class="col-md-12"><a class="btn btn-danger" type="button" href='/'>Cerrar sesión</a></div>

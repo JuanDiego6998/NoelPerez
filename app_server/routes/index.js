@@ -14,6 +14,7 @@ router.get('/proyectos_admin/:proyectoid', ctrlMain.deleteProyecto);
 
 router.get('/agenda', ctrlMain.agenda);
 router.get('/agenda_admin', ctrlMain.agendaAdmin);
+router.post('/agenda_admin', ctrlMain.updateAgenda);
 
 router.get('/about', ctrlMain.about);
 router.get('/about_admin', ctrlMain.aboutAdmin);
@@ -24,7 +25,7 @@ router.get('/log', ctrlMain.log);
 router.post('/log', ctrlMain.checkLog);
 
 router.get('/reservas', ctrlMain.reservas);
-router.post('/reservas', ctrlMain.newReserva);
+router.post('/reservas', ctrlMain.checkReserva);
 
 router.get('/cursos', ctrlMain.cursos);
 router.get('/cursos_admin', ctrlMain.cursosAdmin);
@@ -34,6 +35,8 @@ router.get('/cursos_admin/:cursoid', ctrlMain.cursosAdmin);
 router.get('/cursos_admin/delete/:cursoid', ctrlMain.deleteCurso);
 
 router.get('/estadoAgenda', ctrlMain.estadoAgenda);
+router.get('/estadoAgenda/:reservaid', ctrlMain.penalizarReserva);
+router.get('/reset', ctrlMain.resetReservas);
 
 router.get('/equipos', ctrlMain.equipos);
 router.get('/equipos_admin', ctrlMain.equiposAdmin);

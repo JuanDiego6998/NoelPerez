@@ -3,9 +3,9 @@ var apiOptions = {
 	server: 'http://localhost:3000'
 };
 
-/*if (process.env.NODE_ENV === 'production') {
-	apiOptions.server = 'https://f-593-photoroom.herokuapp.com';
-}*/
+if (process.env.NODE_ENV === 'production') {
+	apiOptions.server = 'https://noelperez.herokuapp.com';
+}
 
 ///////////////////////////////////////index e index admin
 var renderHome = function (req, res, body) {
@@ -264,6 +264,28 @@ module.exports.agendaAdmin = function(req, res){
 		}
 	);
 }
+
+module.exports.updateAgenda = function(req, res){
+	var requestOptions, path, putdata;
+	path = '/api/agenda';
+	putdata = {
+		lunes: req.body.lunes,
+		martes: req.body.martes,
+		miercoles: req.body.miercoles,
+		jueves: req.body.jueves
+	}
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: 'PUT',
+		json: putdata
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			res.redirect('/agenda_admin');
+		}
+	)
+}
 /////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////log y log admin
@@ -303,7 +325,7 @@ module.exports.checkLog = function(req, res){
 			if(body[0].user === req.body.usuario && body[0].password === req.body.password){
 				res.redirect('/index_admin');
 			} else {
-				alert("Usuario o contraseña incorrectos");
+				res.redirect('/log');
 			}
 		}
 	)
@@ -333,7 +355,7 @@ module.exports.reservas = function(req, res){
 	)
 }
 
-module.exports.newReserva = function(req, res){
+var newReserva = function(req, res){
 	var requestOptions, path, postdata;
 	path = '/api/reservas';
 	postdata = {
@@ -353,8 +375,28 @@ module.exports.newReserva = function(req, res){
 		function(err, response, body){
 			if(response.statusCode === 201){
 				res.redirect('/agenda');
-			}else{
-				
+			}
+		}
+	)
+}
+
+module.exports.checkReserva = function(req, res){
+	var requestOptions, path;
+	path = '/api/penalizados';
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: 'GET',
+		json: {}
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			for(i=0; i<body.length; i++){
+				if(body[i].nombre === req.body.nombre || body[i].codigo === req.body.codigo || body[i].email === req.body.email){
+					res.redirect('/reservas');
+				} else {
+					newReserva(req, res);
+				}
 			}
 		}
 	)
@@ -501,6 +543,81 @@ module.exports.estadoAgenda = function(req, res){
 		}
 	)
 }
+
+module.exports.penalizarReserva = function(req, res){
+	var requestOptions, path;
+	path = '/api/estadoAgenda/' + req.params.reservaid;
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: "GET",
+		json: {}
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			transferPenalizado(req, res, body);
+		}
+	)
+}
+
+var transferPenalizado = function(req, res, body){
+	var requestOptions, path, postdata;
+	path = '/api/penalizados';
+	postdata = {
+		nombre: body.nombre,
+		codigo: body.codigo,
+		email: body.email
+	}
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: "POST",
+		json: postdata
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			if(response.statusCode === 201){
+				deleteTransferido(req, res, body);
+			}
+		}
+	)
+}
+
+var deleteTransferido = function(req, res){
+	var requestOptions, path;
+	path = '/api/reservas/' + req.params.reservaid;
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: 'DELETE',
+		json: {}
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			if(response.statusCode === 204){
+				res.redirect('/estadoAgenda');
+			}
+		}
+	)
+}
+
+module.exports.resetReservas = function(req, res){
+	var requestOptions, path;
+	path = '/api/reservas';
+	requestOptions = {
+		url: apiOptions.server + path,
+		method: "DELETE",
+		json: {}
+	}
+	request(
+		requestOptions,
+		function(err, response, body){
+			if(response.statusCode === 204){
+				res.redirect('/estadoAgenda');
+			}
+		}
+	)
+}
 ///////////////////////////////////////////////////
 
 //////////////////////////////////////////////equipos y equipos admin
@@ -556,15 +673,14 @@ module.exports.newEquipo = function(req, res){
 	}
 	requestOptions = {
 		url: apiOptions.server + path,
-		method: 'POST',
+		method: "POST",
 		json: postdata
 	}
+	console.log(requestOptions);
 	request(
 		requestOptions,
 		function(err, response, body){
-			if(response.statusCode === 201){
-				res.redirect('/equipos_admin');
-			}
+			res.redirect('/equipos_admin');
 		}
 	)
 }

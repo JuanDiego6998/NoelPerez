@@ -17,3 +17,27 @@ module.exports.estadoAgendaList = function (req, res) {
         sendJsonResponse(res, 200, results);
     })
 };
+
+module.exports.getReserva = function(req, res){
+    if (req.params && req.params.reservaid) {
+        reservas
+            .findById(req.params.reservaid)
+            .select('nombre codigo email')
+            .exec(function (err, reserva) {
+                if (!reserva) {
+                    sendJsonResponse(res, 404, {
+                        "message": "reservaid not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                    return;
+                }
+                sendJsonResponse(res, 200, reserva);
+            });
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "No reservaid in request"
+        });
+    }
+}
